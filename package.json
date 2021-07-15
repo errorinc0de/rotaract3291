@@ -3,18 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "npm run watch:css && next dev",
+    "build": "next build && npm run build:css",
+    "start": "next start && npm run watch:css",
+    "lint": "next lint",
+    "build:css": "postcss styles/tailwind.css -o styles/index.css",
+    "watch:css": "postcss styles/tailwind.css -o styles/index.css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-full-screen": "^1.0.2",
+    "react-transition-group": "^4.4.2",
+    "tailwindcss": "^2.2.4"
   },
   "devDependencies": {
     "eslint": "7.30.0",
-    "eslint-config-next": "11.0.1"
+    "eslint-config-next": "11.0.1",
+    "autoprefixer": "^10.3.1",
+    "postcss-cli": "^8.3.1"
   }
 }
